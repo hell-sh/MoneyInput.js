@@ -2,6 +2,8 @@
 
 A lightweight solution for intuitive input of money amounts on your website.
 
+[[Example]](https://netducks.github.io/MoneyInput/) [[Download]](https://raw.githubusercontent.com/netducks/MoneyInput/master/MoneyInput.js)
+
 ## Dependencies
 
 1. jQuery
