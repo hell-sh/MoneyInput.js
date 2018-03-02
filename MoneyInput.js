@@ -1,9 +1,8 @@
 /* MoneyInput https://github.com/netducks/MoneyInput */
 
-let $=window.$||window.jQuery;
-
 function registerMoneyInputElements()
 {
+	let $=window.$||window.jQuery;
 	if(typeof $=="undefined")
 	{
 		console.error("MoneyInput.js requires jQuery.");
