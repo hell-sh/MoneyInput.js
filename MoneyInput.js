@@ -1,4 +1,4 @@
-/* MoneyInput https://github.com/netducks/MoneyInput */
+/* MoneyInput v1.1 - https://github.com/hellshltd/MoneyInput */
 
 function registerMoneyInputElements()
 {
@@ -21,39 +21,35 @@ function registerMoneyInputElements()
 		}
 		return euros.toString().replace(".", ",");
 	};
-	$(".money-amount:not([data-money-input])").each(function()
+	$(".money-input:not([data-money-input]),.money-amount:not([data-money-input])").each(function()
 	{
-		$(this).on("input",function(event)
+		if($(this).is(".money-amount"))
 		{
-			if($(this).val()=="")
-			{
-				$(this).val("0,00").attr("data-prev-val","0,00");
-			}
-			else
-			{
-				var cents=parseInt($(this).val().trim().replace(".","").replace(",","")),pos=this.selectionStart;
-				if(isNaN(cents))
-				{
-					$(this).val($(this).attr("data-prev-val"))[0].selectionEnd=pos;
-				}
-				else
-				{
-					var euros=centsToEuros(cents),backpos=$(this).val().length-pos;
-					if(euros!=$(this).attr("data-prev-val"))
-					{
-						$(this).val(euros).attr("data-prev-val",euros);
-						if(backpos>2)
-						{
-							this.selectionEnd=euros.length-3;
-						}
-					}
-				}
-			}
-		}).attr("data-money-input","true").trigger("input");
+			console.warn(".money-amount is deprecated:", this);
+		}
 		if($(this).val()=="")
 		{
 			$(this).val("0,00");
 		}
-		$(this).attr("data-prev-val", $(this).val());
+		$(this).on("input",function(event)
+		{
+			var cents=parseInt($(this).val().trim().replace(".","").replace(",","")),pos=this.selectionStart;
+			if(isNaN(cents))
+			{
+				$(this).val($(this).attr("data-money-input"))[0].selectionEnd=pos;
+			}
+			else
+			{
+				var euros=centsToEuros(cents),backpos=$(this).val().length-pos;
+				if(euros!=$(this).val())
+				{
+					$(this).val(euros).attr("data-money-input",euros);
+					if(backpos > 1)
+					{
+						this.selectionEnd=euros.length-3;
+					}
+				}
+			}
+		}).attr("data-money-input", $(this).val()).trigger("input");
 	});
 }

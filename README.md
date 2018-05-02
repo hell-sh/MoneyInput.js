@@ -2,13 +2,11 @@
 
 A lightweight solution for intuitive input of money amounts on your website.
 
-[[Example]](https://netducks.github.io/MoneyInput/) [[Download]](https://raw.githubusercontent.com/netducks/MoneyInput/master/MoneyInput.js)
+[[Example]](https://hellshltd.github.io/MoneyInput/) [[Download]](https://raw.githubusercontent.com/hellshltd/MoneyInput/master/MoneyInput.js)
 
 ## Dependencies
 
-1. jQuery
-2. ???
-3. Profit
+- jQuery
 
 ## Installation
 
@@ -18,6 +16,6 @@ A lightweight solution for intuitive input of money amounts on your website.
 
 ## Usage
 
-1. You create an input with the class `money-amount`
-2. You call `registerMoneyInputElements();` when your DOM is loaded and when new inputs are added
+1. Create an input with the class `money-input`
+2. Call `registerMoneyInputElements();` when your DOM is loaded and when new inputs are added
 3. Profit
