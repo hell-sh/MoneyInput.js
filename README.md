@@ -1,8 +1,8 @@
-# MoneyInput
+# MoneyInput.js
 
 A lightweight solution for intuitive input of money amounts on your website.
 
-[[Example]](https://hellshltd.github.io/MoneyInput/) [[Download]](https://raw.githubusercontent.com/hellshltd/MoneyInput/master/MoneyInput.js)
+[[Example]](https://hellshltd.github.io/MoneyInput.js/) [[Download]](https://raw.githubusercontent.com/hellshltd/MoneyInput.js/master/MoneyInput.js)
 
 ## Dependencies
 

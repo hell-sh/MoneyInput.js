@@ -1,4 +1,4 @@
-/* MoneyInput v1.1 - https://github.com/hellshltd/MoneyInput */
+/* MoneyInput.js v1.1, Copyright (c) 2018 Hellsh Ltd., https://github.com/hellshltd/MoneyInput.js */
 
 function registerMoneyInputElements()
 {
