@@ -3,16 +3,10 @@
 <head>
 	<title>MoneyInput.js Example</title>
 </head>
-<body onload="registerMoneyInputElements()">
+<body onload="MoneyInput.registerElements()">
 	<h1>MoneyInput<small>.js</small> Example</h1>
-	<hr>
-	<p>I want to pay <input class="money-amount">€ and not a cent more!</p>
-	<ul>
-		<li><input type="checkbox"> I would like ketchup with that</li>
-		<li><input type="checkbox"> I would like mustard with that</li>
-		<li><input type="checkbox"> I would like profit with that</li>
-	</ul>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<p><input class="money-amount" style="border:0;outline:0;height:100px;font-size:100px" autofocus></p>
+	<script src="https://cdn.hell.sh/jquery/3.3.1/slim.js" integrity="sha384-sh6iinGECmk2oNezd0GDVuXqoHrZzF3PTML2nyt/lC61v2p1W7hGll/JkRFCOcMf" crossorigin="anonymous"></script>
 	<script src="MoneyInput.js"></script>
 </body>
 </html>

@@ -4,24 +4,20 @@ A lightweight solution for intuitive input of money amounts on your website.
 
 [View the demo.](https://hellshltd.github.io/MoneyInput.js/)
 
-You can either load the script from cdn.hell.sh using
-
-    <script src="https://cdn.hell.sh/MoneyInput.js/1.1/MoneyInput.js" integrity="sha384-i4Vo3BsnD2W2FOz4evEn7IUZwJJlAbuGbKEDd8HiOg4cxO7Ty7LZDlA4aqOV/XI9" crossorigin="anonymous"></script>
-
-or [download the MoneyInput.js](https://raw.githubusercontent.com/hellshltd/MoneyInput.js/master/MoneyInput.js) and host it yourself.
-
 ## Dependencies
 
-- jQuery
+- jQuery (Slim is good enough)
 
 ## Installation
 
-1. Download the MoneyInput.js
-2. Install it into your website
-3. Profit
+You can either load the script from cdn.hell.sh using
 
-## Usage
+    <script src="https://cdn.hell.sh/MoneyInput.js/1.2/MoneyInput.js" integrity="sha384-+qAa9rrzhEOJq9KBZHEu2ITXlS7eAebIVtsHKlShMDyuzjhEWxET8Lr146F2oct1" crossorigin="anonymous"></script>
 
-1. Create an input with the class `money-input`
-2. Call `registerMoneyInputElements();` when your DOM is loaded and when new inputs are added
-3. Profit
+or [download the MoneyInput.js](https://raw.githubusercontent.com/hellshltd/MoneyInput.js/master/MoneyInput.js) and host it yourself.
+
+## `MoneyInput` object
+
+- `decimalSeperator` — default `,` — symbol to use to indicate decimals
+- `thousandSeperator` — default `.` — symbol to use to indicate thousands
+- `registerElements` — registers all elements with the `money-input` class as a money input element with the proper attributes and events
