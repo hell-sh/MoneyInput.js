@@ -1,9 +1,34 @@
-/* MoneyInput.js v1.2 — Copyright (c) 2018, Hellsh Ltd. — https://github.com/hellshltd/MoneyInput.js */
+/* MoneyInput.js 1.2.1 — Copyright (c) 2018, Hellsh Ltd. — https://github.com/hellshltd/MoneyInput.js */
 
 console.assert(!("MoneyInput" in window));
 window.MoneyInput={
 	decimalSeperator:",",
 	thousandSeperator:".",
+	centsToEuros:function(cents)
+	{
+		cents = (cents / 100);
+		cents = (cents + "").replace(/[^0-9+\-Ee.]/g,"");
+		var n = !isFinite(+cents) ? 0 : +cents,s="",toFixedFix=function(n)
+		{
+			var k = Math.pow(10, 2);
+			return "" + Math.round(n * k) / k;
+		};
+		s = (2 ? toFixedFix(n):""+Math.round(n)).split(".");
+		if(s[0].length>3)
+		{
+			s[0]=s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, MoneyInput.thousandSeperator);
+		}
+		if((s[1] || "").length < 2)
+		{
+			s[1]=s[1]||"";
+			s[1]+=new Array(2-s[1].length+1).join("0");
+		}
+		return s.join(MoneyInput.decimalSeperator);
+	},
+	textToCents:function(text)
+	{
+		return parseInt(text.replace(/[^0-9]*/g,""));
+	},
 	registerElements:function()
 	{
 		var $=window.$||window.jQuery;
@@ -12,44 +37,6 @@ window.MoneyInput={
 			console.error("MoneyInput.js requires jQuery.");
 			return false;
 		}
-		var toFixedFix = function (n, prec) {
-			var k = Math.pow(10, prec);
-			return '' + Math.round(n * k) / k;
-		},
-		centsToEuros=function(cents)
-		{
-			cents = (cents / 100);
-			cents = (cents + "").replace(/[^0-9+\-Ee.]/g, "");
-			var n = !isFinite(+cents) ? 0 : +cents, s = "";
-			s = (2 ? toFixedFix(n, 2) : "" + Math.round(n)).split(".");
-			if(s[0].length > 3)
-			{
-				s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, MoneyInput.thousandSeperator);
-			}
-			if((s[1] || "").length < 2)
-			{
-				s[1] = s[1] || "";
-				s[1] += new Array(2 - s[1].length + 1).join("0");
-			}
-			return s.join(MoneyInput.decimalSeperator);
-		},
-		textToCents=function(text)
-		{
-			var replacements=[".",","];
-			if(MoneyInput.decimalSeperator != "" && replacements.indexOf(MoneyInput.decimalSeperator) == -1)
-			{
-				replacements.push(MoneyInput.decimalSeperator);
-			}
-			if(MoneyInput.thousandSeperator != "" && replacements.indexOf(MoneyInput.thousandSeperator) == -1)
-			{
-				replacements.push(MoneyInput.thousandSeperator);
-			}
-			for(var i in replacements)
-			{
-				text = text.split(replacements[i]).join("");
-			}
-			return parseInt(text);
-		};
 		$(".money-input:not([data-money-input]),.money-amount:not([data-money-input])").each(function()
 		{
 			if($(this).val()==""||$(this).val()=="0")
@@ -64,7 +51,7 @@ window.MoneyInput={
 					$(this).attr("data-money-input","0"+MoneyInput.decimalSeperator+"00").val($(this).attr("data-money-input"));
 					return;
 				}
-				var cents=textToCents(val),pos=this.selectionStart;
+				var cents=MoneyInput.textToCents(val),pos=this.selectionStart;
 				if(isNaN(cents)||cents>=Number.MAX_SAFE_INTEGER)
 				{
 					$(this).val($(this).attr("data-money-input"))[0].selectionEnd=pos;
@@ -78,7 +65,7 @@ window.MoneyInput={
 				{
 					event.originalEvent.inputType="";
 				}
-				var euros=centsToEuros(cents);
+				var euros=MoneyInput.centsToEuros(cents);
 				if(euros==$(this).attr("data-money-input"))
 				{
 					$(this).val(euros);
