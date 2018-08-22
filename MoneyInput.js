@@ -1,4 +1,4 @@
-/* MoneyInput.js 1.2.1 — Copyright (c) 2018, Hellsh Ltd. — https://github.com/hellshltd/MoneyInput.js */
+/* MoneyInput.js 1.2.1 — Copyright (c) 2018, Hellsh — https://github.com/hellshltd/MoneyInput.js */
 
 console.assert(!("MoneyInput" in window));
 window.MoneyInput={

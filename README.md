@@ -2,7 +2,7 @@
 
 A lightweight solution for intuitive input of money amounts on your website.
 
-[View the demo.](https://hellshltd.github.io/MoneyInput.js/)
+[View the demo.](https://hell-sh.github.io/MoneyInput.js/)
 
 ## Dependencies
 
@@ -14,7 +14,7 @@ You can either load the script from cdn.hell.sh using
 
     <script src="https://cdn.hell.sh/MoneyInput.js/1.2.1/MoneyInput.js" integrity="sha384-h9diVyF4OEe+315PplfBUwhJy+fA5KIfa2rng39thsylpT5+nPl1eWmf7i2ag9AR" crossorigin="anonymous"></script>
 
-or [download the MoneyInput.js](https://raw.githubusercontent.com/hellshltd/MoneyInput.js/master/MoneyInput.js) and host it yourself.
+or [download the MoneyInput.js](https://raw.githubusercontent.com/hell-sh/MoneyInput.js/master/MoneyInput.js) and host it yourself.
 
 ## The `MoneyInput` object
 
